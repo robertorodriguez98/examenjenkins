@@ -37,7 +37,6 @@ pipeline {
                 stage ('SSH') {
                     steps{
                         sshagent(credentials : ['SSH_ROOT']) {
-                            sh 'ssh -o StrictHostKeyChecking=no root@nodriza.admichin.es docker rmi -f $IMAGEN:latest'
                             sh 'ssh -o StrictHostKeyChecking=no root@nodriza.admichin.es wget https://raw.githubusercontent.com/robertorodriguez98/examenjenkins/main/docker-compose.yaml -O docker-compose.yaml'
                             sh 'ssh -o StrictHostKeyChecking=no root@nodriza.admichin.es docker-compose up -d --force-recreate'
                         }
