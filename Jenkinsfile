@@ -4,6 +4,7 @@ pipeline {
         LOGIN = 'USER_DOCKERHUB'
     }
     agent none
+    stages{
         stage("Construccion") {
             agent any
             stages {
@@ -52,4 +53,4 @@ pipeline {
             body: "${env.BUILD_URL} has result ${currentBuild.result}"
         }
     }
-
+}
