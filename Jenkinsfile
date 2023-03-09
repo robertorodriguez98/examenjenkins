@@ -31,7 +31,7 @@ pipeline {
                 }
                 stage('RemoveImage') {
                     steps {
-                        sh "docker rmif $IMAGEN:latest"
+                        sh "docker rmi -f $IMAGEN:latest"
                     }
                 }
                 stage ('SSH') {
